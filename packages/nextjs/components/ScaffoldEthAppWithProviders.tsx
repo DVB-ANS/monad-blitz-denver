@@ -13,12 +13,12 @@ import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
-  const isConnectPage = pathname === "/connect";
+  const hideConnectButton = pathname === "/connect" || pathname === "/" || pathname === "/about";
 
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        {!isConnectPage && (
+        {!hideConnectButton && (
           <div className="fixed top-0 right-0 z-20 p-4">
             <RainbowKitCustomConnectButton />
           </div>

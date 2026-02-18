@@ -1,8 +1,8 @@
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
 import {
-  baseAccount,
   ledgerWallet,
   metaMaskWallet,
+  rabbyWallet,
   rainbowWallet,
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
@@ -21,7 +21,7 @@ export const wagmiConnectors = () => {
     return [];
   }
 
-  const wallets = [metaMaskWallet, walletConnectWallet, ledgerWallet, baseAccount, rainbowWallet];
+  const wallets = [metaMaskWallet, rabbyWallet, walletConnectWallet, ledgerWallet, rainbowWallet];
 
   if (!targetNetworks.some(network => network.id !== (chains.hardhat as chains.Chain).id) || !onlyLocalBurnerWallet) {
     // Dynamic require to avoid loading burner-connector on the server (it accesses localStorage)
